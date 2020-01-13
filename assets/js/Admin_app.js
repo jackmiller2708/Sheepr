@@ -6,7 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (User_app.scss in this case)
-import '../css/User_app.scss';
+import '../css/Admin_app.scss';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';

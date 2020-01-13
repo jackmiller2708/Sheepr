@@ -23,7 +23,13 @@ Encore
      * Each entry will result in one JavaScript file (e.g. User_app.js)
      * and one CSS file (e.g. User_app.scss) if your JavaScript imports CSS.
      */
+    //Base Files
     .addEntry('U_app', './assets/js/User_app.js')
+    .addEntry('A_app', './assets/js/Admin_app.js')
+    //User Pages
+    .addEntry('U_home', './assets/js/User/User_home.js')
+    //Admin Pages
+    .addEntry('A_home', './assets/js/Admin/Admin_home.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
