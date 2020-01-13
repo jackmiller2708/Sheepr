@@ -2,7 +2,10 @@
 This is the Repository for Sheepr.net development
 
 # Get Started
-1. Have [Composer](https://getcomposer.org/) installed on your computer
+1. Have [Composer](https://getcomposer.org/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable) installed on your computer
 2. Clone this repository to your local folder
-3. Run __composer install__ and __yarn install__ to get all required dependencies
-4. Enjoy developing!
+3. Run `composer install` and `yarn install` to get all required dependencies
+4. Run `php bin/console doctrine:database:create` to initiate the database
+5. Run `php bin/console doctrine:migrations:diff` and `php bin/console doctrine:migrations:migrate` to create tables
+6. READ THE __DOCUMENTATION__!
+7. Enjoy developing!
