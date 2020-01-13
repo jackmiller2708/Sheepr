@@ -7,5 +7,4 @@ This is the Repository for Sheepr.net development
 3. Run `composer install` and `yarn install` to get all required dependencies
 4. Run `php bin/console doctrine:database:create` to initiate the database
 5. Run `php bin/console doctrine:migrations:diff` and `php bin/console doctrine:migrations:migrate` to create tables
-6. READ THE __DOCUMENTATION__!
-7. Enjoy developing!
+6. Enjoy developing!
