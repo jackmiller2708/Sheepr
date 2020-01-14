@@ -1,5 +1,17 @@
 {% extends 'Admin_base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('A_home') }}
+{% endblock %}
+
 {% block body %}
-    <h1>Admin Home</h1>
+    <div class="containers">
+        <h1>Admin Home</h1>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('A_home') }}
 {% endblock %}
