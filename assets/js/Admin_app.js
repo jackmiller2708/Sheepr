@@ -9,6 +9,7 @@
 import '../css/Admin_app.scss';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
-
+import $ from 'jquery';
+import 'bootstrap';
+import '@fortawesome/fontawesome-free';
 console.log('Hello Webpack Encore! Edit me in assets/js/User_app.js');

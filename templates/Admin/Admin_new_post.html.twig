@@ -1,1 +1,79 @@
-{% extends 'Admin_base.html.twig' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}New Post{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('A_Post_pages') }}
+    {% endblock %}
+</head>
+<body>
+    <div id="container">
+        {{ form_start(form) }}
+        <div id="header">
+            <div class="container">
+                {{ form_row(form.title) }}
+                <div id="genre">
+                    {{ form_row(form.Genre) }}
+                </div>
+            </div>
+        </div>
+        <div id="main" class="container">
+            <div id="main-content">
+                <div id="poster">
+                    {{ form_row(form.posterFile) }}
+                    <div>
+                        <p id="uploaded-poster-name" class="alert alert-success"></p>
+                    </div>
+                </div>
+                <div id="content">
+                    {{ form_row(form.content) }}
+                </div>
+            </div>
+            <div id="main-sidebar">
+                <div id="requirements">
+                    <div class="title">
+                        <h4>Requirements</h4>
+                    </div>
+                    <div id="minimumRequirements">
+                        <p>Minimum Requirements</p>
+                        {{ form_row(form.minimumRequirements.oS) }}
+                        {{ form_row(form.minimumRequirements.processor) }}
+                        {{ form_row(form.minimumRequirements.memory) }}
+                        {{ form_row(form.minimumRequirements.graphics) }}
+                        {{ form_row(form.minimumRequirements.diskSpace) }}
+                    </div>
+                    <div id="recommendedRequirements">
+                        <p>Recommended Requirements</p>
+                        {{ form_row(form.recommendedRequirements.oS) }}
+                        {{ form_row(form.recommendedRequirements.processor) }}
+                        {{ form_row(form.recommendedRequirements.memory) }}
+                        {{ form_row(form.recommendedRequirements.graphics) }}
+                        {{ form_row(form.recommendedRequirements.diskSpace) }}
+                    </div>
+                </div>
+                <div id="links">
+                    <div class="title">
+                        <h4>Download</h4>
+                    </div>
+                    {{ form_row(form.links.fshare) }}
+                    {{ form_row(form.links.googleDrive) }}
+                    {{ form_row(form.links.steam) }}
+                </div>
+            </div>
+        </div>
+        <div id="buttons">
+            <button type="submit">Save</button>
+            <button><a href="{{ path('admin_home') }}">Cancel</a></button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+    {% block javascripts %}
+        <script src="{{ asset('otherJS/ckeditor/ckeditor.js') }}"></script>
+        {{ encore_entry_script_tags('A_Post_pages') }}
+    {% endblock %}
+</body>
+</html>

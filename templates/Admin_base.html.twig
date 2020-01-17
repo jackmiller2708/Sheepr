@@ -13,14 +13,14 @@
             <h1>Sheepr-Admin</h1>
             <nav>
                 <a href="{{path('admin_home')}}">Home</a>
-                <a href="javascript: void(0);">New Post</a>
+                <a href="{{ path('admin_new_post') }}">New Post</a>
                 <a href="javascript: void(0);">Requests</a>
                 <a href="javascript: void(0);">Q&A</a>
                 <a href="{{ path('app_logout') }}">Log Out</a>
             </nav>
         </div>
+        <div id="blank-banner"></div>
         <div id="main-content">
-            <div id="blank-banner"></div>
             {% block body %}
             {% endblock %}
         </div>

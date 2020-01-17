@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}New Post{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('A_Post_pages') }}
+    {% endblock %}
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <div class="container">
+            <h1>{{ post.title|title }}</h1>
+            <div id="genre">
+                {% for genre in post.Genre %}
+                    <p>{{ genre.name }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="main" class="container">
+        <div id="main-content">
+            <div id="content">
+                {{ post.content|raw }}
+            </div>
+        </div>
+        <div id="main-sidebar">
+            <div id="requirements">
+                <div class="title">
+                    <h4>Requirements</h4>
+                </div>
+                <div id="minimumRequirements">
+                    <p>Minimum Requirements</p>
+                    {{ post.minimumRequirements.oS }}
+                    {{ post.minimumRequirements.processor }}
+                    {{ post.minimumRequirements.memory }}
+                    {{ post.minimumRequirements.graphics }}
+                    {{ post.minimumRequirements.diskSpace }}
+                </div>
+                <div id="recommendedRequirements">
+                    <p>Recommended Requirements</p>
+                    {{ post.recommendedRequirements.oS }}
+                    {{ post.recommendedRequirements.processor }}
+                    {{ post.recommendedRequirements.memory }}
+                    {{ post.recommendedRequirements.graphics }}
+                    {{ post.recommendedRequirements.diskSpace }}
+                </div>
+            </div>
+            <div id="links">
+                <div class="title">
+                    <h4>Download</h4>
+                </div>
+                {{ post.links.fshare }}
+                {{ post.links.googleDrive }}
+                {{ post.links.steam }}
+            </div>
+        </div>
+    </div>
+</div>
+{% block javascripts %}
+    {{ encore_entry_script_tags('A_Post_pages') }}
+{% endblock %}
+</body>
+</html>

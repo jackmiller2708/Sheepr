@@ -8,6 +8,40 @@
 {% block body %}
     <div class="containers">
         <h1>Admin Home</h1>
+        <div id="posts">
+            {% for post in posts %}
+                <div class="post">
+                    <img src="{{ asset('uploads/') ~ post.slug ~ '/' ~ post.PosterFileName }}" alt="{{ post.PosterFileName }}">
+                    <div class="post-title">
+                        <p>{{ post.title|title }}</p>
+                    </div>
+                    <div class="extra-info">
+                        <p><i class="far fa-eye"></i> {{ post.views }}</p>
+                        <p><i class="fas fa-download"> </i> {{ post.downloads }}</p>
+                    </div>
+                    <div class="tools">
+                        <a href="{{ path('admin_edit_post', {slug:post.slug}) }}" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-cog"></i></a>
+                        <a href="javascript: void(0);" data-toggle="tooltip" data-placement="top" title="Xóa Bài"><i class="fa fa-trash" data-toggle="modal" data-target="#DeleteModal-{{ post.slug }}"></i></a>
+                        <a href="{{ path('admin_post_preview', {slug: post.slug}) }}" data-toggle="tooltip" data-placement="top" title="Xem Trước"><i class="fas fa-eye"></i></a>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="DeleteModal-{{ post.slug }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                Bạn có chắc là muốn xóa <span>{{ post.title|title }}</span> khỏi server?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Không</button>
+                                <a href="{{ path('delete_post', {id: post.id}) }}" class="delete-post" data-dismiss="modal">Xác nhận</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
 
