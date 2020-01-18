@@ -31,6 +31,7 @@ Encore
     //Admin Pages
     .addEntry('A_home', './assets/js/Admin/Admin_home.js')
     .addEntry('A_Post_pages', './assets/js/Admin/Post_pages.js')
+    .addEntry('A_Post_read', './assets/js/Admin/Post_page_read.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

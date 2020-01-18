@@ -1,0 +1,160 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+body{
+  #container{
+    #header{
+      background: #F53240;
+      margin-bottom: 20px;
+      padding: 40px 0;
+      color: #fff;
+
+      > div{
+        h1{
+          font-size: 4em;
+          text-align: center;
+          font-family: 'Work Sans', sans-serif;
+        }
+
+        #extra-info, #genre{
+          width: max-content;
+          margin: auto;
+
+          p{
+            font-size: 1.5em;
+          }
+        }
+
+        #extra-info{
+          display: flex;
+          p{
+            margin: 0 3px;
+          }
+        }
+
+        #genre{
+          display: flex;
+          p{
+            &:last-of-type{
+              &:after{
+                content: none;
+              }
+            }
+
+            &:after{
+              content: '|';
+              margin: 0 3px;
+            }
+
+            a{
+              text-decoration: none;
+              color: #fff;
+              transition: all 200ms ease-in-out;
+
+              &:hover{
+                color: #000;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #main{
+      display: flex;
+      flex-direction: row-reverse;
+
+      #main-content{
+        flex: 5;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      #main-sidebar{
+        flex: 2;
+        padding-right: 30px;
+        position: sticky;
+        top: 20px;
+        align-self: flex-start;
+
+        > div{
+          margin-bottom: 10px;
+
+          .title{
+            background: #000;
+            color: #fff;
+            font-size: 1.3em;
+            text-align: center;
+            padding: 10px 0;
+
+            h4{
+              margin: 0;
+              font-family: 'Bungee', cursive;
+            }
+          }
+
+          .section-content{
+            border: 2px solid #000;
+            height: 100%;
+
+            #minimumRequirements,
+            #recommendedRequirements{
+              display: flex;
+              flex-direction: column;
+              padding: 0 10px;
+
+              p{
+                margin-bottom: 3px;
+              }
+
+              ul{
+                list-style: none;
+                padding-left: 15px;
+                margin-bottom: 10px;
+              }
+            }
+
+            #download-links{
+              padding-top: 10px;
+              height: 100%;
+              display: grid;
+              grid-template-columns: max-content max-content max-content;
+              justify-content: space-around;
+
+              a{
+                position: relative;
+
+                img{
+                  transition: all 200ms ease-in;
+                  &:first-of-type{
+                    position: absolute;
+                    width: 54.55px;
+                    height: 54.55px;
+                  }
+
+                  &:last-of-type{
+                    width: 54.55px;
+                    height: 0;
+                    margin-bottom: 65px;
+                  }
+                }
+
+                &:hover{
+                  img:last-of-type{
+                    height: 12px;
+                    margin-top: 63px;
+                    margin-bottom: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

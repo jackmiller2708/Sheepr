@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}New Post{% endblock %}</title>
+    <title>{{ post.title|title }} - Admin Preview</title>
     {% block stylesheets %}
-        {{ encore_entry_link_tags('A_Post_pages') }}
+        {{ encore_entry_link_tags('A_Post_read') }}
     {% endblock %}
 </head>
 <body>
@@ -15,9 +15,14 @@
     <div id="header">
         <div class="container">
             <h1>{{ post.title|title }}</h1>
+            <div id="extra-info">
+                <p><i class="far fa-eye"></i> {{ post.views }}</p>
+                <p>|</p>
+                <p><i class="far fa-calendar-alt"></i> {{ post.timePosted|date('F d yy') }}</p>
+            </div>
             <div id="genre">
                 {% for genre in post.Genre %}
-                    <p>{{ genre.name }}</p>
+                    <p><a href="javascript: void(0);">{{ genre.name }}</a></p>
                 {% endfor %}
             </div>
         </div>
@@ -33,36 +38,62 @@
                 <div class="title">
                     <h4>Requirements</h4>
                 </div>
-                <div id="minimumRequirements">
-                    <p>Minimum Requirements</p>
-                    {{ post.minimumRequirements.oS }}
-                    {{ post.minimumRequirements.processor }}
-                    {{ post.minimumRequirements.memory }}
-                    {{ post.minimumRequirements.graphics }}
-                    {{ post.minimumRequirements.diskSpace }}
-                </div>
-                <div id="recommendedRequirements">
-                    <p>Recommended Requirements</p>
-                    {{ post.recommendedRequirements.oS }}
-                    {{ post.recommendedRequirements.processor }}
-                    {{ post.recommendedRequirements.memory }}
-                    {{ post.recommendedRequirements.graphics }}
-                    {{ post.recommendedRequirements.diskSpace }}
+                <div class="section-content">
+                    <div id="minimumRequirements">
+                        <p>Minimum Requirements</p>
+                        <ul>
+                            <li>OS: {{ post.minimumRequirements.oS }}</li>
+                            <li>Processor: {{ post.minimumRequirements.processor }}</li>
+                            <li>Memory: {{ post.minimumRequirements.memory }}</li>
+                            <li>Graphics: {{ post.minimumRequirements.graphics }}</li>
+                            <li>Disk Space: {{ post.minimumRequirements.diskSpace }}</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div id="recommendedRequirements">
+                        <p>Recommended Requirements</p>
+                        <ul>
+                            <li>OS: {{ post.recommendedRequirements.oS }}</li>
+                            <li>Processor: {{ post.recommendedRequirements.processor }}</li>
+                            <li>Memory: {{ post.recommendedRequirements.memory }}</li>
+                            <li>Graphics: {{ post.recommendedRequirements.graphics }}</li>
+                            <li>Disk Space: {{ post.recommendedRequirements.diskSpace }}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div id="links">
                 <div class="title">
                     <h4>Download</h4>
                 </div>
-                {{ post.links.fshare }}
-                {{ post.links.googleDrive }}
-                {{ post.links.steam }}
+                <div class="section-content">
+                    <div id="download-links">
+                        {% if not post.links.fshare is empty %}
+                            <a href="{{ post.links.fshare }}" target="_blank">
+                                <img src="{{ asset('img/Fshare-part1.png') }}" alt="Fshare-Part1">
+                                <img src="{{ asset('img/Fshare-part2.png') }}" alt="Fshare-Part2">
+                            </a>
+                        {% endif %}
+                        {% if not post.links.googleDrive is empty %}
+                            <a href="{{ post.links.googleDrive }}" target="_blank">
+                                <img src="{{ asset('img/GoogleDrive-part1.png') }}" alt="Google-Part1">
+                                <img src="{{ asset('img/GoogleDrive-part2.png') }}" alt="Google-Part2">
+                            </a>
+                        {% endif %}
+                        {% if not post.links.Steam is empty %}
+                            <a href="https://store.steampowered.com/app/{{ post.links.steam }}" target="_blank">
+                                <img src="{{ asset('img/Steam-part1.png') }}" alt="Steam-Part1">
+                                <img src="{{ asset('img/Steam-part2.png') }}" alt="Steam-Part2">
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 {% block javascripts %}
-    {{ encore_entry_script_tags('A_Post_pages') }}
+    {{ encore_entry_script_tags('A_Post_read') }}
 {% endblock %}
 </body>
 </html>
