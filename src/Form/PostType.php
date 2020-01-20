@@ -7,6 +7,7 @@ use App\Entity\Post;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +22,11 @@ class PostType extends AbstractType
                     'placeholder' => 'Title goes here...'
                 ]
             ])
-            ->add('content')
+            ->add('content', TextareaType::class, [
+                'label_attr' => [
+                    'id' => 'content-label'
+                ]
+            ])
             ->add('minimumRequirements',  MinimumRequirementsType::class,[
             ])
             ->add('recommendedRequirements',  RecommendedRequirementsType::class,[
@@ -44,6 +49,7 @@ class PostType extends AbstractType
                     'id' => 'poster-input-trigger'
                 ]
             ])
+            ->add('installation')
         ;
     }
 

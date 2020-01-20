@@ -76,6 +76,11 @@ class Post
      */
     private $posterFileName;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $installation;
+
     public function __construct()
     {
         $this->Genre = new ArrayCollection();
@@ -243,6 +248,18 @@ class Post
     public function setPosterFileName(string $posterFileName): self
     {
         $this->posterFileName = $posterFileName;
+
+        return $this;
+    }
+
+    public function getInstallation(): ?string
+    {
+        return $this->installation;
+    }
+
+    public function setInstallation(string $installation): self
+    {
+        $this->installation = $installation;
 
         return $this;
     }

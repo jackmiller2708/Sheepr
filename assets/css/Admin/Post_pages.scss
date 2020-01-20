@@ -1,4 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Bungee');
 
 @keyframes stripe-slide {
   0% { background-position: 0 0; }
@@ -13,6 +14,7 @@
 
 body{
   padding: 50px 20px;
+
   #container{
     form{
       position: relative;
@@ -22,7 +24,15 @@ body{
         padding: 10px;
         > div{
           > div{
+            margin-bottom: 20px;
+
             > label{
+              display: none;
+            }
+          }
+
+          #genre{
+            label{
               display: none;
             }
           }
@@ -131,8 +141,10 @@ body{
         margin-top: 20px;
         display: flex;
         flex-direction: row-reverse;
+        position: relative;
         #main-content{
           flex: 5;
+          margin-bottom: 50px;
 
           #poster{
             display: flex;
@@ -221,21 +233,71 @@ body{
               }
             }
           }
+
+          #content{
+            #content-label{
+              font-size: 2em;
+              font-family: 'Bungee', cursive;
+            }
+
+            #cke_post_content{
+              border: 2px solid #000;
+
+              #cke_1_top{
+                border-bottom: 2px  solid #000;
+              }
+            }
+          }
         }
 
         #main-sidebar{
           padding-right: 10px;
+          .title{
+            background: #000;
+            color: #fff;
+            font-size: 1.3em;
+            text-align: center;
+            padding: 10px 0;
+
+            h4{
+              margin: 0;
+              font-family: 'Bungee', cursive;
+            }
+          }
+
+          #installation{
+            label{
+              display: none;
+            }
+          }
+
+          .section-content{
+            border: 2px solid #000;
+            height: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            p{
+              margin: 0;
+            }
+
+            #minimumRequirements,
+            #recommendedRequirements{
+              padding: 10px;
+            }
+          }
+
           div{
             display: flex;
             flex-direction: column;
           }
           flex: 1.5;
         }
-      }
-      #buttons{
-        position: absolute;
-        right: 30px;
-        bottom: 0;
+
+        #buttons{
+          position: absolute;
+          right: 15px;
+          bottom: 0;
+        }
       }
     }
   }
