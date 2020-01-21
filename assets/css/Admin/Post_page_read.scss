@@ -101,6 +101,8 @@ body{
             border: 2px solid #000;
             height: 100%;
 
+            padding: 10px;
+
             #minimumRequirements,
             #recommendedRequirements{
               display: flex;
@@ -152,6 +154,14 @@ body{
                 }
               }
             }
+          }
+        }
+        #installation{
+
+          span{
+            cursor: pointer;
+
+            font-weight: 600;
           }
         }
       }
