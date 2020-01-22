@@ -2,15 +2,17 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('A_home') }}
+    {{ encore_entry_link_tags('A_Games') }}
 {% endblock %}
+
+{% block title %}Admin Home{% endblock %}
 
 {% block body %}
     <div class="containers">
-        <h1>Admin Home</h1>
+        <h1>Admin Games Posts</h1>
         <div id="posts">
             {% for post in posts %}
-                <div class="post">
+                <div class="post" data-genre="{% for genre in post.genre %} {{ genre.name }} {% endfor %}">
                     <img src="{{ asset('uploads/') ~ post.slug ~ '/' ~ post.PosterFileName }}" alt="{{ post.PosterFileName }}">
                     <div class="post-title">
                         <p>{{ post.title|title }}</p>
@@ -42,10 +44,17 @@
                 </div>
             {% endfor %}
         </div>
+        <div id="add-post">
+            <div class="button">
+                <span class="button__mask"></span>
+                <span class="button__text">Viết Bài</span>
+                <a href="{{ path('admin_new_post') }}"><span class="button__text button__text--bis">Viết Bài</span></a>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {{ encore_entry_script_tags('A_home') }}
+    {{ encore_entry_script_tags('A_Games') }}
 {% endblock %}

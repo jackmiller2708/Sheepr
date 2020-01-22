@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Genre;
 use App\Entity\Post;
 use Gumlet\ImageResize;
 use Cocur\Slugify\Slugify;
@@ -19,13 +20,15 @@ class AdminController extends AbstractController
 {
     /**
      * @return Response
-     * @Route("/Admin/Home", name="admin_home")
+     * @Route("/Admin/Games", name="admin_home")
      */
     public function Admin_home()
     {
+        $genre = $this->getDoctrine()->getRepository(Genre::class)->findBy(array(), ['name' => 'DESC']);
         $posts = $this->getDoctrine()->getRepository(Post::class)->findBy(array(), ['TimePosted' => 'DESC']);
 
-        return $this->render('Admin/Admin_home.html.twig', [
+        return $this->render('Admin/Admin_games.html.twig', [
+            'genres' => $genre,
             'posts' => $posts
         ]);
     }
@@ -162,5 +165,14 @@ class AdminController extends AbstractController
         return $this->render('Admin/Admin_post_preview.html.twig',[
             'post' => $post
         ]);
+    }
+
+    /**
+     * @return Response
+     * @Route("Admin/Requests", name="admin_handle_request")
+     */
+    public function Admin_handle_request()
+    {
+        return $this->render('Admin/Admin_handle_request.html.twig');
     }
 }

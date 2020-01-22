@@ -41,4 +41,5 @@ class AjaxController extends AbstractController
         rmdir($path);
         return;
     }
+
 }
